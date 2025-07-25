@@ -1,10 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 const NavBar = () => {
   const [shadow, setShadow] = useState(false);
-
-const name = "Korir Emmanuel";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,15 +33,19 @@ const name = "Korir Emmanuel";
 
   return (
     <nav
-      className={`bg-[rgb(255,255,255)] dark:bg-[rgba(203,255,136,0.67)] px-4 py-3 fixed top-5 z-10 w-290 backdrop-blur-md rounded-full ${
-        shadow ? "shadow-md" : ""
-      }`}
+      className={`fixed top-5 z-10 w-290 rounded-full px-4 py-3 transition-all duration-500
+        ${
+          shadow
+            ? "bg-[rgb(255,255,255)] dark:bg-[rgba(203,255,136,0.67)] backdrop-blur-md shadow-md"
+            : "bg-transparent backdrop-blur-0 shadow-none"
+        }
+      `}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-black ml-3.5">
+        <a href="#" className="text-2xl font-bold text-black">
           YesIndeed
         </a>
-        <div className="flex gap-6">
+        <div className="flex gap-8">
           <a href="https://www.icdl.org" className="text-black hover:underline">
             Home
           </a>
@@ -49,7 +62,14 @@ const name = "Korir Emmanuel";
             Pricing
           </a>
         </div>
-        <a href="" className="mr-3.5">{name}</a>
+        <ClerkProvider>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </ClerkProvider>
       </div>
     </nav>
   );
