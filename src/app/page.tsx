@@ -33,7 +33,7 @@ export default function Home() {
               width={16}
               height={16}
             />
-            Learn
+            Pay
           </a>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -63,7 +63,7 @@ export default function Home() {
               width={16}
               height={16}
             />
-            Go to nextjs.org →
+            Pick your domain →
           </a>
         </main>
       </div>

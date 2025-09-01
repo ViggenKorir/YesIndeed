@@ -45,20 +45,20 @@ const NavBar = () => {
         <a href="#" className="text-2xl font-bold text-black">
           YesIndeed
         </a>
-        <div className="flex gap-8">
-          <a href="https://www.icdl.org" className="text-black hover:underline">
+        <div className="flex gap-8 ">
+          <a href="#" className="text-black hover:underline hover:animate-bounce">
             Home
           </a>
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline hover:animate-bounce">
             Our Products
           </a>
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline hover:animate-bounce">
             About Us
           </a>
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline hover:animate-bounce">
             Contact Us
           </a>
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline hover:animate-bounce">
             Pricing
           </a>
         </div>
