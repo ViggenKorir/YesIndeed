@@ -1,4 +1,10 @@
-import { Users, DollarSign, TrendingUp, MousePointer, BarChart3 } from "lucide-react";
+import {
+  Users,
+  DollarSign,
+  TrendingUp,
+  MousePointer,
+  BarChart3,
+} from "lucide-react";
 import { MetricCard } from "./MetricCard";
 import { ChartCard } from "./ChartCard";
 import { RevenueChart } from "./RevenueChart";
@@ -19,7 +25,7 @@ const Index = () => {
           </h1>
         </div>
         <p className="text-muted-foreground">
-          Monitor your app's performance and user engagement
+          Monitor your app&apos;s performance and user engagement
         </p>
       </div>
 
@@ -57,8 +63,8 @@ const Index = () => {
 
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <ChartCard 
-          title="Revenue & User Growth" 
+        <ChartCard
+          title="Revenue & User Growth"
           description="Monthly revenue and user acquisition trends"
           className="lg:col-span-2"
         >
@@ -67,15 +73,15 @@ const Index = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ChartCard 
-          title="Traffic Sources" 
+        <ChartCard
+          title="Traffic Sources"
           description="Where your users are coming from"
         >
           <TrafficSourceChart />
         </ChartCard>
-        
-        <ChartCard 
-          title="Weekly Conversions" 
+
+        <ChartCard
+          title="Weekly Conversions"
           description="Conversion performance by day"
         >
           <ConversionChart />
