@@ -27,7 +27,7 @@ const Hero = () => {
 
   return (
     <section className="py-2 px-2 text-center mt-0">
-      <h1 className="text-6xl font-bold mb-6">
+      <h1 className="text-6xl font-bold mb-6 ">
         Need a digital presence for your
         <br />{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-900 to-green-600 transition-all duration-500">
