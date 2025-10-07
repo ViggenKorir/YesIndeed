@@ -4,7 +4,7 @@ import React from "react";
 const Header = () => (
   <header className="flex items-center justify-between py-6 px-8 bg-white rounded-t-2xl">
     <div className="flex items-center gap-2">
-      <span className="font-bold text-lg">WizardZ</span>
+      <span className="font-bold text-lg"></span>
     </div>
     <nav className="flex gap-8 text-sm">
       <a href="#" className="hover:underline">About us</a>
