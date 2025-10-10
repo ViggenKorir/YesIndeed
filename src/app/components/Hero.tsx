@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 const Hero = () => {
   // Debugging: Log rendering of Hero component
   console.log("Rendering Hero component");
-  const fields = { field: "business" }; // Example sector object
   const services = [
     "Branding",
     "Web Design",
@@ -25,10 +24,10 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % services.length);
-    }, 500); // change every 1/2 seconds (500ms)
+    }, 800); // change every 1/2 seconds (800ms)
 
     return () => clearInterval(interval);
-  }, []);
+  }, [services.length]);
 
   return (
     <section className="py-2 px-2 text-center mt-0">

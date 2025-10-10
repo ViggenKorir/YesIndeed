@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 const CallToAction = () => (
   <section className="py-10 px-8 bg-gray-100 rounded-xl my-8 text-center grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -18,10 +19,13 @@ const CallToAction = () => (
     </div>
     <div>
       <aside>
-        <img
+        <Image
           src="/Services.png"
           alt="Sci-Fi Image"
+          width={500}
+          height={300}
           className="ml-2 h-100 rounded-2xl"
+          priority
         />
       </aside>
     </div>

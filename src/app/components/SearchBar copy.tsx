@@ -1,6 +1,6 @@
 "use client";
-import { useState, ChangeEvent } from "react";
-import { Search, ShoppingCart, Heart, SlidersHorizontal } from "lucide-react";
+import { useState } from "react";
+import { Search, SlidersHorizontal } from "lucide-react";
 
 const suggestions: string[] = [
   "Cusana",
@@ -11,34 +11,13 @@ const suggestions: string[] = [
   "BioPharma",
 ];
 function SearchBar() {
-  const [query, setQuery] = useState<string>("");
-  const [filtered, setFiltered] = useState<string[]>([]);
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.trim() === "") {
-      setFiltered([]);
-    } else {
-      const results = suggestions.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase()),
-      );
-      setFiltered(results);
-    }
-  };
-
-  const handleSelect = (value: string) => {
-    setQuery(value);
-    setFiltered([]);
-  };
+  const [_query, setQuery] = useState<string>("");
 
   return (
     // {/* Center: Search bar */}
     <div className="absolute left-1/2 ml-10 mt-2 -translate-x-1/2 w-full max-w-xl flex justify-center bg-[rgb(255,255,255)] ">
-      '{" "}
       <div className="flex items-center bg-[#ececec] rounded-xl px-3 py-1 w-full shadow-sm">
-        ' <Search size={20} className="text-gray-400 mr-2" />
+        <Search size={20} className="text-gray-400 mr-2" />
         <input
           type="text"
           placeholder="search business names"
