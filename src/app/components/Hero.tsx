@@ -62,10 +62,10 @@ const Hero = () => {
         Optimization (SEO), PPC (Pay-Per-Click) advertising, social media
         marketing, and email marketing.
       </motion.div>
-      <button className="bg-[rgba(130, 182, 62, 0.9)] text-black border px-16 py-4 rounded-full font-medium hover:bg-black hover:text-white hover:border hover:animate-pulse">
+      <button className="bg-[rgba(130, 182, 62, 0.9)] text-black border px-16 py-4 rounded-full font-medium hover:bg-black hover:text-white hover:border hover:cursor-pointer hover:animate-pulse">
         Book a consultation
       </button>
-      <button className="bg-[rgba(130, 182, 62, 0.9)] text-black border px-16 py-4 rounded-full font-medium hover:bg-black hover:text-white hover:border ml-7.5 animate-bounce ">
+      <button className="border px-16 py-4 rounded-full font-medium bg-gradient-to-r from-green-900 to-green-600 text-white hover:border-s-stone-950 hover:underline hover:cursor-pointer ml-7.5 animate-bounce ">
         Get a quotation
       </button>
       <div className="flex flex-wrap justify-center items-center gap-6 mt-8 mb-8">

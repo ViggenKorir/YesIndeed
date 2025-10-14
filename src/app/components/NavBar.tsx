@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-// import Link from "next/link";
 import {
   ClerkProvider,
   SignInButton,
@@ -8,175 +7,162 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-// import { Search, SlidersHorizontal } from "lucide-react";
-
-// const NavBar = () => {
-//   const [shadow, setShadow] = useState(false);
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setShadow(window.scrollY > 0);
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   return (
-//     <nav
-//       className={`fixed top-0 z-10 w-full px-4 py-3 transition-all duration-500
-//         ${
-//           shadow
-//             ? "bg-[rgb(255,255,255)] dark:bg-white backdrop-blur-md shadow-md border-0.5"
-//             : "bg-[rgb(255,255,255)] backdrop-blur-0 shadow-none"
-//         }
-//       `}
-//     >
-//       <div className="container mx-auto flex justify-between items-center">
-//         <Link href="/" className="text-2xl font-bold text-black mr-25">
-//           Smartistics
-//         </Link>
-
-//         {/* Burger menu button */}
-//         <button
-//           className="lg:hidden flex flex-col justify-center items-center w-10 h-10"
-//           onClick={() => setMenuOpen((prev) => !prev)}
-//           aria-label="Toggle menu"
-//         >
-//           <span
-//             className={`block h-0.5 w-6 bg-black mb-1 transition-all duration-300 ${
-//               menuOpen ? "rotate-45 translate-y-2" : ""
-//             }`}
-//           />
-//           <span
-//             className={`block h-0.5 w-6 bg-black mb-1 transition-all duration-300 ${
-//               menuOpen ? "opacity-0" : ""
-//             }`}
-//           />
-//           <span
-//             className={`block h-0.5 w-6 bg-black transition-all duration-300 ${
-//               menuOpen ? "-rotate-45 -translate-y-1 " : ""
-//             }`}
-//           />
-//         </button>
-
-//         {/* Desktop menu */}
-//         <div className="hidden lg:flex gap-8">
-//           <Link href="/" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             Home
-//           </Link>
-//           <Link href="/dashboard" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             Dashboard
-//           </Link>
-//           <Link href="/products" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             Our Products
-//           </Link>
-//           <Link href="/about" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             About Us
-//           </Link>
-//           <Link href="/contact" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             Contact Us
-//           </Link>
-//           <Link href="/pricing" className="text-black hover:underline hover:animate-bounce h-8.5">
-//             Pricing
-//           </Link>
-//         </div>
-
-//         <div className="hidden lg:flex ml-25">
-//           {/* Authentication buttons */}
-//           <ClerkProvider>
-//             <SignedOut>
-//               <SignInButton />
-//             </SignedOut>
-//             <SignedIn>
-//               <UserButton />
-//             </SignedIn>
-//           </ClerkProvider>
-//         </div>
-//       </div>
-
-//       {/* Center: Search bar */}
-//       <div className="absolute left-1/2 ml-10 mt-2 -translate-x-1/2 w-full max-w-xl flex justify-center bg-[rgb(255,255,255)] ">
-//         <div className="flex items-center bg-[#ececec] rounded-xl px-3 py-1 w-full shadow-sm">
-//           <Search size={20} className="text-gray-400 mr-2" />
-//           <input
-//             type="text"
-//             placeholder="search business names"
-//             // className="bg-transparent outline-none border-none flex-1 text-base py-2 text-gray-700 placeholder:text-gray-400"
-//           />
-//           <select className="bg-transparent outline-none border-none flex-1 text-base py-2 text-gray-700 placeholder:text-gray-400">
-//             <p>We do Web Development for the following fields:</p>
-//             <option value="e-commerce">e-commerce</option>
-//             <option value="health">health</option>
-//             <option value="education">education</option>
-//             <option value="finance">finance</option>
-//             <option value="real-estate">real-estate</option>
-//             <option value="portfolio">portfolio</option>
-//             <option value="blog">blog</option>
-//             <option value="entertainment">entertainment</option>
-//             <option value="non-profit">non-profit</option>
-//             <option value="technology">technology</option>
-//             <option value="travel">travel</option>
-//             <option value="restaurant">restaurant</option>
-//             <option value="personal">personal</option>
-//             <option value="fashion">fashion</option>
-//             <option value="automotive">automotive</option>
-//             <option value="legal">legal</option>
-//             <option value="consulting">consulting</option>
-//             <option value="marketing">marketing</option>
-//             <option value="media">media</option>
-//             <option value="sports">sports</option>
-//             <option value="other">other</option>
-//           </select>
-//           <SlidersHorizontal size={20} className="text-gray-400 ml-2 cursor-pointer" />
-//         </div>
-//       </div>
-
-//       {/* Mobile menu */}
-//       {menuOpen && (
-//         <div className="lg:hidden mt-4 rounded-2xl shadow-lg bg-white py-4 px-6 flex flex-col gap-4 absolute left-0 right-0 mx-4 top-full z-20">
-//           <Link href="/" className="text-black hover:underline">
-//             Home
-//           </Link>
-//           <Link href="/dashboard" className="text-black hover:underline">
-//             Dashboard
-//           </Link>
-//           <Link href="/products" className="text-black hover:underline">
-//             Our Products
-//           </Link>
-//           <Link href="/about" className="text-black hover:underline">
-//             About Us
-//           </Link>
-//           <Link href="/contact" className="text-black hover:underline">
-//             Contact Us
-//           </Link>
-//           <Link href="/pricing" className="text-black hover:underline">
-//             Pricing
-//           </Link>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
-
-// ("use client");
-// import { useState, useEffect } from "react";
 import Link from "next/link";
-import SearchBar from "./SearchBar";
-// import {
-//   ClerkProvider,
-//   SignInButton,
-//   SignUpButton,
-//   SignedIn,
-//   SignedOut,
-//   UserButton,
-// } from "@clerk/nextjs";
+
+import {
+  ChevronDown,
+  Map,
+  Navigation,
+  Search,
+  Database,
+  Server,
+  Globe,
+  Zap,
+  Book,
+  Users,
+  Calendar,
+  Shield,
+} from "lucide-react";
 
 const NavBar = () => {
   const [shadow, setShadow] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const navItems = {
+    Products: {
+      sections: [
+        {
+          items: [
+            {
+              icon: Map,
+              label: "Maps",
+              desc: "Beautiful, customizable maps",
+              badge: null,
+            },
+            {
+              icon: Navigation,
+              label: "Navigation",
+              desc: "Custom navigation services",
+              badge: null,
+            },
+            {
+              icon: Search,
+              label: "Search",
+              desc: "Powerful location search",
+              badge: null,
+            },
+            {
+              icon: Database,
+              label: "Data",
+              desc: "Rich location data",
+              badge: null,
+            },
+            {
+              icon: Server,
+              label: "Self-Hosted",
+              desc: "Deploy on your infrastructure",
+              badge: "New",
+            },
+          ],
+        },
+      ],
+    },
+    Solutions: {
+      sections: [
+        {
+          items: [
+            {
+              icon: Navigation,
+              label: "Automotive",
+              desc: "In-vehicle navigation systems",
+              badge: null,
+            },
+            {
+              icon: Globe,
+              label: "Logistics",
+              desc: "Fleet management solutions",
+              badge: null,
+            },
+            {
+              icon: Zap,
+              label: "Real Estate",
+              desc: "Property visualization tools",
+              badge: null,
+            },
+            {
+              icon: Users,
+              label: "Social",
+              desc: "Location-based apps",
+              badge: null,
+            },
+          ],
+        },
+      ],
+    },
+    Resources: {
+      sections: [
+        {
+          title: "NEWS",
+          items: [
+            {
+              icon: Book,
+              label: "Blog",
+              desc: "Product launches and features",
+              badge: null,
+            },
+            {
+              icon: Globe,
+              label: "Newsroom",
+              desc: "Latest news and press",
+              badge: null,
+            },
+            {
+              icon: Calendar,
+              label: "Events",
+              desc: "Virtual and in-person events",
+              badge: null,
+            },
+          ],
+        },
+        {
+          title: "LEARN",
+          items: [
+            {
+              icon: Users,
+              label: "Customer Showcase",
+              desc: "See customer use cases",
+              badge: null,
+            },
+            {
+              icon: Book,
+              label: "Documentation",
+              desc: "Comprehensive guides",
+              badge: null,
+            },
+          ],
+        },
+        {
+          title: "GET HELP",
+          items: [
+            {
+              icon: Zap,
+              label: "Support",
+              desc: "Fast and expert help",
+              badge: null,
+            },
+            {
+              icon: Shield,
+              label: "Security",
+              desc: "Protect your account",
+              badge: null,
+            },
+          ],
+        },
+      ],
+    },
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -225,7 +211,127 @@ const NavBar = () => {
         </button>
 
         {/* Desktop menu */}
-        <div className="hidden lg:flex gap-8">
+
+        <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-1">
+            {Object.keys(navItems).map((item) => (
+              <div
+                key={item}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="px-4 py-2 text-black hover:text-gray-900 font-medium flex items-center space-x-1 transition-colors">
+                  <span>{item}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      activeDropdown === item ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+            ))}
+
+            <button className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium">
+              Pricing
+            </button>
+          </div>
+        </div>
+
+        {/* Dropdown Menus */}
+        {Object.keys(navItems).map((item) => (
+          <div
+            key={item}
+            className={`absolute left-0 right-0 bg-white border-b border-gray-200 shadow-lg transition-all duration-300 ease-out z-50 ${
+              activeDropdown === item
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 -translate-y-4 pointer-events-none"
+            }`}
+            onMouseEnter={() => setActiveDropdown(item)}
+            onMouseLeave={() => setActiveDropdown(null)}
+            style={{ top: "55px" }}
+          >
+            <div className="max-w-7xl mx-auto px-4 py-8">
+              <div className="grid grid-cols-3 gap-8">
+                {navItems[item].sections.map((section, sectionIdx) => (
+                  <div key={sectionIdx} className="space-y-4">
+                    {section.title && (
+                      <div className="flex items-center space-x-2 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                        {section.title === "NEWS" && (
+                          <Globe className="w-4 h-4" />
+                        )}
+                        {section.title === "LEARN" && (
+                          <Book className="w-4 h-4" />
+                        )}
+                        {section.title === "GET HELP" && (
+                          <Shield className="w-4 h-4" />
+                        )}
+                        <span>{section.title}</span>
+                      </div>
+                    )}
+                    {section.items.map((subItem, idx) => (
+                      <a
+                        key={idx}
+                        href="#"
+                        className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 group"
+                      >
+                        <div className="flex-shrink-0 mt-0.5">
+                          <subItem.icon className="w-5 h-5 text-green-900" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center space-x-2">
+                            <span className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
+                              {subItem.label}
+                            </span>
+                            {subItem.badge && (
+                              <span className="px-2 py-0.5 text-xs font-semibold bg-blue-100 text-green-700 rounded uppercase">
+                                {subItem.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-sm text-gray-600 mt-0.5">
+                            {subItem.desc}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Right Side Buttons */}
+        <div className="flex items-center space-x-3">
+          <button className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium">
+            Contact us
+          </button>
+
+          {/* Authentication buttons */}
+          <ClerkProvider>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="px-6 py-2 bg-gradient-to-r from-green-900 to-green-600 text-white rounded-full hover:animate-pulse hover:cursor-pointer transition-colors font-medium">
+                  Sign up
+                </button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: "w-10 h-10",
+                  },
+                }}
+              />
+            </SignedIn>
+          </ClerkProvider>
+        </div>
+      </div>
+      {/*</div>*/}
+
+      {/*<div className="hidden lg:flex gap-8">
           <Link
             href="/"
             className="text-black hover:underline hover:animate-bounce h-8.5"
@@ -262,20 +368,7 @@ const NavBar = () => {
           >
             Docs
           </Link>
-        </div>
-
-        <div className="hidden lg:flex ml-25">
-          {/*Authentication buttons */}{" "}
-          <ClerkProvider>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </ClerkProvider>
-        </div>
-      </div>
+        </div>*/}
 
       {/* Mobile menu */}
       {menuOpen && (

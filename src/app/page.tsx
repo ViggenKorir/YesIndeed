@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import NavBar2 from "./components/NavBar2";
 import CallToAction from "./components/CallToAction";
 import CaseStudy from "./components/CaseStudy";
 import Hero from "./components/Hero";
@@ -11,6 +12,7 @@ export default function Home() {
       <div className=" grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-0">
         <NavBar />
       </div>
+      {/*<NavBar2 />*/}
       <Hero />
       <Services />
       {/*<Header />*/}
