@@ -55,6 +55,7 @@
 
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function ServicesShowcase() {
   // const services = [
@@ -174,9 +175,11 @@ export default function ServicesShowcase() {
 
       {/* Call to action */}
       <div className="mt-12 text-center">
-        <button className="px-6 py-3 bg-gradient-to-r from-green-900 to-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">
-          Let’s Work Together
-        </button>
+        <Link href="/quote">
+          <button className="px-6 py-3 bg-gradient-to-r from-green-900 to-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">
+            Let’s Work Together
+          </button>
+        </Link>
       </div>
     </section>
   );

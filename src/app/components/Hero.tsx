@@ -2,6 +2,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   // Debugging: Log rendering of Hero component
@@ -28,6 +35,8 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, [services.length]);
+
+  const router = useRouter();
 
   return (
     <section className="py-2 px-2 text-center mt-0">
@@ -62,12 +71,20 @@ const Hero = () => {
         Optimization (SEO), PPC (Pay-Per-Click) advertising, social media
         marketing, and email marketing.
       </motion.div>
-      <button className="bg-[rgba(130, 182, 62, 0.9)] text-black border px-16 py-4 rounded-full font-medium hover:bg-black hover:text-white hover:border hover:cursor-pointer hover:animate-pulse">
+      <button
+        onClick={() => router.push("/support")}
+        className="bg-[rgba(130, 182, 62, 0.9)] text-black border px-16 py-4 rounded-full font-medium hover:bg-black hover:text-white hover:border hover:cursor-pointer hover:animate-pulse"
+      >
         Book a consultation
       </button>
-      <button className="border px-16 py-4 rounded-full font-medium bg-gradient-to-r from-green-900 to-green-600 text-white hover:border-s-stone-950 hover:underline hover:cursor-pointer ml-7.5 animate-bounce ">
+
+      <button
+        onClick={() => router.push("/quote")}
+        className="border px-16 py-4 rounded-full font-medium bg-gradient-to-r from-green-900 to-green-600 text-white hover:border-s-stone-950 hover:underline hover:cursor-pointer ml-7.5 animate-bounce"
+      >
         Get a quotation
       </button>
+
       <div className="flex flex-wrap justify-center items-center gap-6 mt-8 mb-8">
         <p>Our Clients:</p>
         {[

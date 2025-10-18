@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const CallToAction = () => (
   <section className="py-10 px-8 bg-gray-100 rounded-xl my-8 text-center grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -10,12 +11,14 @@ const CallToAction = () => (
         Contact us today to learn more about how our digital marketing services
         can help your business grow and succeed online.
       </p>
-      <button
-        style={{ margin: "0 auto" }}
-        className="bg-black text-white px-6  py-2 w-100 rounded-full font-medium hover:text-transparent hover:bg-clip-text bg-gradient-to-r from-green-900 to-green-600 hover:outline-outline-cyan-950 transition-all duration-400 hover:underline "
-      >
-        Get your free proposal
-      </button>
+      <Link href="/quote">
+        <button
+          style={{ margin: "0 auto" }}
+          className="bg-black text-white px-6 py-2 w-100 rounded-full font-medium hover:text-transparent hover:bg-clip-text bg-gradient-to-r from-green-900 to-green-600 hover:outline-outline-cyan-950 transition-all duration-400 hover:underline hover:cursor-pointer"
+        >
+          Get your free proposal
+        </button>
+      </Link>
     </div>
     <div>
       <aside>

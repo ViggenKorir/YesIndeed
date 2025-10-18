@@ -1,5 +1,4 @@
 import NavBar from "./components/NavBar";
-import NavBar2 from "./components/NavBar2";
 import CallToAction from "./components/CallToAction";
 import CaseStudy from "./components/CaseStudy";
 import Hero from "./components/Hero";

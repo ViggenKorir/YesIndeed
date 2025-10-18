@@ -8,6 +8,28 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import { LucideIcon } from "lucide-react";
+
+interface NavItem {
+  icon: LucideIcon;
+  label: string;
+  desc: string;
+  badge: string | null;
+  url: string;
+}
+
+interface NavSection {
+  title?: string;
+  items: NavItem[];
+}
+
+interface NavCategory {
+  sections: NavSection[];
+}
+
+interface NavItems {
+  [key: string]: NavCategory;
+}
 
 import {
   ChevronDown,
@@ -24,13 +46,13 @@ import {
   Shield,
 } from "lucide-react";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const [shadow, setShadow] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const navItems = {
+  const navItems: NavItems = {
     Products: {
       sections: [
         {
@@ -40,30 +62,35 @@ const NavBar = () => {
               label: "Maps",
               desc: "Beautiful, customizable maps",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Navigation,
               label: "Navigation",
               desc: "Custom navigation services",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Search,
               label: "Search",
               desc: "Powerful location search",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Database,
               label: "Data",
               desc: "Rich location data",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Server,
               label: "Self-Hosted",
               desc: "Deploy on your infrastructure",
               badge: "New",
+              url: "/upcoming",
             },
           ],
         },
@@ -78,24 +105,28 @@ const NavBar = () => {
               label: "Automotive",
               desc: "In-vehicle navigation systems",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Globe,
               label: "Logistics",
               desc: "Fleet management solutions",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Zap,
               label: "Real Estate",
               desc: "Property visualization tools",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Users,
               label: "Social",
               desc: "Location-based apps",
               badge: null,
+              url: "/upcoming",
             },
           ],
         },
@@ -111,18 +142,21 @@ const NavBar = () => {
               label: "Blog",
               desc: "Product launches and features",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Globe,
               label: "Newsroom",
               desc: "Latest news and press",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Calendar,
               label: "Events",
               desc: "Virtual and in-person events",
               badge: null,
+              url: "/upcoming",
             },
           ],
         },
@@ -134,12 +168,14 @@ const NavBar = () => {
               label: "Customer Showcase",
               desc: "See customer use cases",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Book,
               label: "Documentation",
               desc: "Comprehensive guides",
               badge: null,
+              url: "/upcoming",
             },
           ],
         },
@@ -149,14 +185,16 @@ const NavBar = () => {
             {
               icon: Zap,
               label: "Support",
-              desc: "Fast and expert help",
+              desc: "Fast, expert help",
               badge: null,
+              url: "/upcoming",
             },
             {
               icon: Shield,
               label: "Security",
               desc: "Protect your account",
               badge: null,
+              url: "/upcoming",
             },
           ],
         },
@@ -177,7 +215,7 @@ const NavBar = () => {
       className={`fixed top-5 z-10 rounded-full w-6xl px-4 py-3 transition-all duration-500 mb-1.5
         ${
           shadow
-            ? "bg- [rgb(255,255,255)] dark:bg-white backdrop-blur-md shadow-md border-0.5"
+            ? "bg-[rgb(255,255,255)] dark:bg-white backdrop-blur-md shadow-md border-0.5"
             : "bg-[rgb(255,255,255)] backdrop-blur-0 shadow-none"
         }
       `}
@@ -221,7 +259,7 @@ const NavBar = () => {
                 onMouseEnter={() => setActiveDropdown(item)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="px-4 py-2 text-black hover:text-gray-900 font-medium flex items-center space-x-1 transition-colors">
+                <button className="px-4 py-2 text-black hover:text-gray-900 font-medium flex items-center space-x-1 transition-colors h-10.5">
                   <span>{item}</span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-200 ${
@@ -232,7 +270,7 @@ const NavBar = () => {
               </div>
             ))}
 
-            <button className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium">
+            <button className="px-4 py-2 text-black hover:text-gray-900 font-medium">
               Pricing
             </button>
           </div>
@@ -242,7 +280,7 @@ const NavBar = () => {
         {Object.keys(navItems).map((item) => (
           <div
             key={item}
-            className={`absolute left-0 right-0 bg-white border-b border-gray-200 shadow-lg transition-all duration-300 ease-out z-50 ${
+            className={`absolute left-0 right-0 bg-white rounded-3xl border-b border-gray-200 shadow-lg transition-all duration-300 ease-out z-50 ${
               activeDropdown === item
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-4 pointer-events-none"
@@ -272,7 +310,7 @@ const NavBar = () => {
                     {section.items.map((subItem, idx) => (
                       <a
                         key={idx}
-                        href="#"
+                        href={subItem.url}
                         className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 group"
                       >
                         <div className="flex-shrink-0 mt-0.5">

@@ -18,6 +18,7 @@ const CaseStudy = () => (
     <h2 className="px-6 py-3 bg-gradient-to-r from-green-900 to-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">
       Case study
     </h2>
+    <br />
     <p className="mb-8 text-gray-700 max-w-xl">
       Explore Real-Life Examples of Our Proven Digital Marketing Success through
       Our Case Studies
