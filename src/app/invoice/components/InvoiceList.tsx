@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import type { Currency, LineItem, Invoice } from "./types";
+import type { Invoice } from "./types";
 import { calculateTotals, formatCurrency } from "./types";
 
 type Props = {
@@ -34,7 +34,7 @@ export default function InvoiceList({
 
       <ul className="divide-y bg-white rounded shadow">
         {invoices.map((inv) => {
-          const { subtotal, tax, total } = calculateTotals(inv.items);
+          const { total } = calculateTotals(inv.items);
           return (
             <li
               key={inv.id}

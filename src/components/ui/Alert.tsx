@@ -219,10 +219,9 @@ const Toast = ({
   alert: AlertItem;
   onClose: () => void;
 }) => {
-  const { id, title, description, variant, duration } = alert;
+  const { title, description, variant, duration } = alert;
   const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(100); // percent of remaining time
-  const timerRef = useRef<number | null>(null);
   const startRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -254,7 +253,6 @@ const Toast = ({
     };
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration, onClose]);
 
   const handleClose = () => {

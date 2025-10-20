@@ -110,7 +110,9 @@ export function calculateTotals(
   );
 
   const taxableAmount = validItems
-    .filter((it) => !(it.meta && (it.meta as any).taxExempt))
+    .filter(
+      (it) => !(it.meta && (it.meta as Record<string, unknown>).taxExempt),
+    )
     .reduce((sum, it) => sum + it.qty * it.unitPrice, 0);
 
   const rawTax = taxableAmount * taxRate;

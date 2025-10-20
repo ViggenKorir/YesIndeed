@@ -1,40 +1,19 @@
 "use client";
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
 
-const suggestions: string[] = [
-  "Cusana",
-  "CureWell",
-  "CuisineCo",
-  "WellnessHub",
-  "NutriLife",
-  "BioPharma",
-];
+// Define suggestions for future use
+// const suggestions: string[] = [
+//   "Cusana",
+//   "CureWell",
+//   "CuisineCo",
+//   "WellnessHub",
+//   "NutriLife",
+//   "BioPharma",
+// ];
 function SearchBar() {
-  const [query, setQuery] = useState<string>("");
-  const [filtered, setFiltered] = useState<string[]>([]);
-
-  const [shadow, setShadow] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.trim() === "") {
-      setFiltered([]);
-    } else {
-      const results = suggestions.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase()),
-      );
-      setFiltered(results);
-    }
-  };
-
-  const handleSelect = (value: string) => {
-    setQuery(value);
-    setFiltered([]);
-  };
+  // State will be used in future implementations
+  const [shadow] = useState(false);
 
   return (
     // {/* Center: Search bar */}

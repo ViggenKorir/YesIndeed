@@ -80,43 +80,79 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
   const handleMessage = (contact: Contact) => {
     if (!allowed) {
-      notify({ title: "Access denied", description: "You do not have permission to message contacts.", variant: "error" });
+      notify({
+        title: "Access denied",
+        description: "You do not have permission to message contacts.",
+        variant: "error",
+      });
       return;
     }
     if (onMessage) {
       onMessage(contact);
-      notify({ title: "Message", description: `Opened message composer for ${contact.name} (simulated)`, variant: "info" });
+      notify({
+        title: "Message",
+        description: `Opened message composer for ${contact.name} (simulated)`,
+        variant: "info",
+      });
     } else {
-      notify({ title: "Message", description: `Message simulated to ${contact.name}`, variant: "success" });
+      notify({
+        title: "Message",
+        description: `Message simulated to ${contact.name}`,
+        variant: "success",
+      });
     }
   };
 
   const handleBulkMessage = () => {
     if (!allowed) {
-      notify({ title: "Access denied", description: "You do not have permission to message contacts.", variant: "error" });
+      notify({
+        title: "Access denied",
+        description: "You do not have permission to message contacts.",
+        variant: "error",
+      });
       return;
     }
     if (selected.size === 0) {
-      notify({ title: "No selection", description: "Please select contacts to message.", variant: "info" });
+      notify({
+        title: "No selection",
+        description: "Please select contacts to message.",
+        variant: "info",
+      });
       return;
     }
     // Simulate sending
-    notify({ title: "Bulk message", description: `Messaging ${selected.size} contacts (simulated)`, variant: "success" });
+    notify({
+      title: "Bulk message",
+      description: `Messaging ${selected.size} contacts (simulated)`,
+      variant: "success",
+    });
     setSelected(new Set());
   };
 
   const handleDelete = (contact: Contact) => {
     if (!allowed) {
-      notify({ title: "Access denied", description: "You do not have permission to delete contacts.", variant: "error" });
+      notify({
+        title: "Access denied",
+        description: "You do not have permission to delete contacts.",
+        variant: "error",
+      });
       return;
     }
     const ok = confirm(`Delete ${contact.name}? This action cannot be undone.`);
     if (!ok) {
-      notify({ title: "Cancelled", description: "Delete cancelled", variant: "info" });
+      notify({
+        title: "Cancelled",
+        description: "Delete cancelled",
+        variant: "info",
+      });
       return;
     }
     // Delegate deletion to parent in a real app. Here we just notify.
-    notify({ title: "Deleted", description: `${contact.name} removed (simulated)`, variant: "success" });
+    notify({
+      title: "Deleted",
+      description: `${contact.name} removed (simulated)`,
+      variant: "success",
+    });
     setSelected((prev) => {
       const clone = new Set(prev);
       clone.delete(contact.id);
@@ -126,19 +162,35 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
   const handleBulkDelete = () => {
     if (!allowed) {
-      notify({ title: "Access denied", description: "You do not have permission to delete contacts.", variant: "error" });
+      notify({
+        title: "Access denied",
+        description: "You do not have permission to delete contacts.",
+        variant: "error",
+      });
       return;
     }
     if (selected.size === 0) {
-      notify({ title: "No selection", description: "Please select contacts to delete.", variant: "info" });
+      notify({
+        title: "No selection",
+        description: "Please select contacts to delete.",
+        variant: "info",
+      });
       return;
     }
     const ok = confirm(`Delete ${selected.size} selected contacts?`);
     if (!ok) {
-      notify({ title: "Cancelled", description: "Bulk delete cancelled", variant: "info" });
+      notify({
+        title: "Cancelled",
+        description: "Bulk delete cancelled",
+        variant: "info",
+      });
       return;
     }
-    notify({ title: "Deleted", description: `${selected.size} contacts deleted (simulated)`, variant: "success" });
+    notify({
+      title: "Deleted",
+      description: `${selected.size} contacts deleted (simulated)`,
+      variant: "success",
+    });
     setSelected(new Set());
   };
 
@@ -146,7 +198,10 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
     <Card className="p-4" aria-labelledby="contacts-heading">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 id="contacts-heading" className="text-lg font-semibold text-foreground">
+          <h3
+            id="contacts-heading"
+            className="text-lg font-semibold text-foreground"
+          >
             Contacts
           </h3>
           <p className="text-sm text-muted-foreground">
@@ -171,7 +226,11 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
               <Mail className="h-4 w-4 mr-2" /> Message selected
             </Button>
 
-            <Button variant="outline" className="border-red-600 text-red-700" onClick={handleBulkDelete}>
+            <Button
+              variant="outline"
+              className="border-red-600 text-red-700"
+              onClick={handleBulkDelete}
+            >
               Delete selected
             </Button>
           </div>
@@ -180,7 +239,9 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
       {!allowed ? (
         <div className="rounded-md border border-dashed border-muted p-6 text-center">
-          <p className="text-sm text-muted-foreground">You don't have access to contacts for your current role.</p>
+          <p className="text-sm text-muted-foreground">
+            You don&apos;t have access to contacts for your current role.
+          </p>
         </div>
       ) : (
         <div className="overflow-x-auto">
@@ -189,7 +250,11 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
               <TableRow>
                 <TableHead className="w-12">
                   <Checkbox
-                    checked={selected.size > 0 && selected.size === filtered.length && filtered.length > 0}
+                    checked={
+                      selected.size > 0 &&
+                      selected.size === filtered.length &&
+                      filtered.length > 0
+                    }
                     onCheckedChange={(v) => selectAllVisible(Boolean(v))}
                     aria-label="Select all visible contacts"
                   />
@@ -204,26 +269,43 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
             <TableBody>
               {filtered.map((c) => (
-                <TableRow key={c.id} className="hover:bg-muted/5 transition-colors">
+                <TableRow
+                  key={c.id}
+                  className="hover:bg-muted/5 transition-colors"
+                >
                   <TableCell>
-                    <Checkbox checked={selected.has(c.id)} onCheckedChange={() => toggleSelect(c.id)} aria-label={`Select ${c.name}`} />
+                    <Checkbox
+                      checked={selected.has(c.id)}
+                      onCheckedChange={() => toggleSelect(c.id)}
+                      aria-label={`Select ${c.name}`}
+                    />
                   </TableCell>
 
                   <TableCell>
                     <div className="flex items-center gap-3">
                       <div className="min-w-0">
-                        <div className="font-medium text-foreground truncate">{c.name}</div>
-                        <div className="text-xs text-muted-foreground truncate">{c.email ?? "—"}</div>
+                        <div className="font-medium text-foreground truncate">
+                          {c.name}
+                        </div>
+                        <div className="text-xs text-muted-foreground truncate">
+                          {c.email ?? "—"}
+                        </div>
                       </div>
                     </div>
                   </TableCell>
 
-                  <TableCell className="hidden lg:table-cell text-sm text-muted-foreground">{c.company ?? "—"}</TableCell>
+                  <TableCell className="hidden lg:table-cell text-sm text-muted-foreground">
+                    {c.company ?? "—"}
+                  </TableCell>
 
                   <TableCell className="hidden md:table-cell">
                     {c.email ? (
-                      <a href={`mailto:${c.email}`} className="text-blue-600 hover:underline inline-flex items-center gap-2">
-                        <Mail className="h-4 w-4" /> <span className="text-sm">{c.email}</span>
+                      <a
+                        href={`mailto:${c.email}`}
+                        className="text-blue-600 hover:underline inline-flex items-center gap-2"
+                      >
+                        <Mail className="h-4 w-4" />{" "}
+                        <span className="text-sm">{c.email}</span>
                       </a>
                     ) : (
                       <span className="text-muted-foreground">—</span>
@@ -232,8 +314,12 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
                   <TableCell className="hidden md:table-cell">
                     {c.phone ? (
-                      <a href={`tel:${c.phone}`} className="text-blue-600 hover:underline inline-flex items-center gap-2">
-                        <Phone className="h-4 w-4" /> <span className="text-sm">{c.phone}</span>
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="text-blue-600 hover:underline inline-flex items-center gap-2"
+                      >
+                        <Phone className="h-4 w-4" />{" "}
+                        <span className="text-sm">{c.phone}</span>
                       </a>
                     ) : (
                       <span className="text-muted-foreground">—</span>
@@ -242,11 +328,21 @@ export default function ContactsList({ contacts, role, onMessage }: Props) {
 
                   <TableCell>
                     <div className="flex items-center justify-end gap-2">
-                      <Button size="icon" variant="ghost" onClick={() => handleMessage(c)} aria-label={`Message ${c.name}`}>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => handleMessage(c)}
+                        aria-label={`Message ${c.name}`}
+                      >
                         <Mail className="h-4 w-4" />
                       </Button>
 
-                      <Button size="icon" variant="ghost" onClick={() => handleDelete(c)} aria-label={`Delete ${c.name}`}>
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => handleDelete(c)}
+                        aria-label={`Delete ${c.name}`}
+                      >
                         <MoreHorizontal className="h-4 w-4 text-rose-600" />
                       </Button>
                     </div>

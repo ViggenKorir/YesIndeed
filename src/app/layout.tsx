@@ -15,31 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html
-        lang="en"
-        className="font-sans"
-        style={{
-          fontFamily:
-            "var(--font-nunito), system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
-        }}
-      >
-        <head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            as="style"
-            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-            rel="stylesheet"
-          />
-        </head>
+      <html lang="en" className="font-sans">
         <body className="antialiased">
           <AlertProvider>
             <header className="flex justify-end items-center p-4 gap-4 h-16" />

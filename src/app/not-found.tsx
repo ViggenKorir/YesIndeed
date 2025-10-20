@@ -42,7 +42,7 @@ export default function NotFound() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-8 text-gray-700 max-w-xl mx-auto text-lg"
         >
-          Oops! The page you're looking for doesn't exist.
+          Oops! The page you&apos;re looking for doesn&apos;t exist.
           <br />
           It might have been moved or deleted.
         </motion.p>
@@ -70,7 +70,7 @@ export default function NotFound() {
           className="mt-12 text-sm text-gray-500"
         >
           <p>
-            Still can't find what you're looking for?{" "}
+            Still can&apos;t find what you&apos;re looking for?{" "}
             <Link
               href="/support"
               className="text-green-600 hover:underline font-medium"

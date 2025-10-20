@@ -28,7 +28,8 @@ const ComingSoonPage = () => {
         >
           Sorry! your request is currently unavailable,
           <br />
-          We're working on it. Join Our waitlist to get notified once available
+          We&apos;re working on it. Join Our waitlist to get notified once
+          available
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-4">

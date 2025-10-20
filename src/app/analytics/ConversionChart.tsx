@@ -10,19 +10,7 @@ import {
 } from "recharts";
 import { TooltipProps } from "recharts";
 
-interface ChartData {
-  day: string;
-  conversions: number;
-  clicks: number;
-}
-
-interface PayloadItem {
-  color: string;
-  dataKey: string;
-  value: number;
-}
-
-interface CustomTooltipProps extends TooltipProps<number, string> {
+type CustomTooltipProps = TooltipProps<number, string> & {
   active?: boolean;
   payload?: Array<{
     color: string;
@@ -30,7 +18,7 @@ interface CustomTooltipProps extends TooltipProps<number, string> {
     value: number;
   }>;
   label?: string;
-}
+};
 
 const data = [
   { day: "Mon", conversions: 45, clicks: 1200 },

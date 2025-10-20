@@ -1,18 +1,9 @@
 "use client";
-import React from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-} from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 const Hero = () => {
-  // Debugging: Log rendering of Hero component
-  console.log("Rendering Hero component");
   const services = [
     "Branding",
     "Web Design",

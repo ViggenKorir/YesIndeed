@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const waitlist = () => {
+const Waitlist = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -146,4 +146,4 @@ const waitlist = () => {
   );
 };
 
-export default waitlist;
+export default Waitlist;

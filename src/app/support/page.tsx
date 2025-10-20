@@ -30,7 +30,7 @@ const SupportPage = () => {
     {
       icon: MessageSquare,
       title: "Technical Issues",
-      description: "Report bugs or technical problems you're experiencing",
+      description: "Report bugs or technical problems you&apos;re experiencing",
       color: "purple",
     },
     {
@@ -78,7 +78,7 @@ const SupportPage = () => {
           className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-900 to-green-600">
-            We're Here to Help
+            We&apos;re Here to Help
           </span>
         </motion.h1>
 
@@ -183,7 +183,7 @@ const SupportPage = () => {
           <p>
             Prefer live chat?{" "}
             <Link
-              href="/waitlist"
+              href="/mailing/waitlist"
               className="text-green-600 hover:underline font-medium"
             >
               Join our waitlist

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/app/dashboard/components/Header";
 import KPIGrid from "@/app/dashboard/components/KPIGrid";
@@ -59,9 +59,9 @@ export default function DashboardPage() {
 
   // Dashboard state (demo data)
   const [kpis] = useState<KPI[]>(sampleData.kpis);
-  const [projects, setProjects] = useState<Project[]>(sampleData.projects);
+  const [projects] = useState<Project[]>(sampleData.projects);
   const [deals, setDeals] = useState<Deal[]>(sampleData.deals);
-  const [contacts, setContacts] = useState<Contact[]>(sampleData.contacts);
+  const [contacts] = useState<Contact[]>(sampleData.contacts);
   const [tasks, setTasks] = useState<Task[]>(sampleData.tasks);
 
   // Run auth check on mount
@@ -264,7 +264,7 @@ export default function DashboardPage() {
             {canView(role, "adminPanel") ? (
               <AdminPanel
                 currentRole={role}
-                onPromote={(id, newRole) => promoteUser(id)}
+                onPromote={(id, _newRole) => promoteUser(id)}
                 onRevoke={(id) => revokeUser(id)}
               />
             ) : null}
